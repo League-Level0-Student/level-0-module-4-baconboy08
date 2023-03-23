@@ -17,7 +17,7 @@ import processing.core.PImage;
  * 
  * 2. Declare a variable for the image:
  *    PImage face;
- * 
+ *  
  * In the setup() method:
  *   3. Load your image using the following code:
  *      waldo = loadImage("waldo.jpg");
@@ -50,13 +50,34 @@ public class WheresWaldo extends PApplet {
 
     @Override
     public void setup() {
-        
+    waldo = loadImage("waldo.jpg");   
+    waldo.resize(600,400);
+    
+    background(waldo);
     }
 
     @Override
     public void draw() {
-        
+       //println("X: " + mouseX + " Y: " + mouseY);
+       
+       if (mousePressed) {
+    	   if (mouseX > 372 && mouseX < 417 && mouseY > 203 && mouseY < 285) {
+    		   
+    		   playWhoohoo();
+    		   
+    		   System.out.println("whoohoo");
+    	   
+    	   } else {
+    		   
+    		   playDoh();
+    		   System.out.println("doh");
+    		   
+    	   }
+    	   
+       }
     }
+    
+    
 
     static public void main(String[] args) {
         PApplet.main(WheresWaldo.class.getName());
